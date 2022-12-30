@@ -19,7 +19,7 @@ def convert_coordinates(x):
 def get_infobox(url):
     # load page and get infobox section
     r = requests.get(url)
-    site = bs4.BeautifulSoup(r.text)
+    site = bs4.BeautifulSoup(r.text, features="lxml")
     infobox = site.find('table', {'class': 'infobox'})
 
     # convert each row of infobox into key:value item in a dictionary
